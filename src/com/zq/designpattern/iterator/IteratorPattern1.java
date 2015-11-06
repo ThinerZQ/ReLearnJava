@@ -1,6 +1,8 @@
 package com.zq.designpattern.iterator;
+
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * Created by zhengshouzi on 2015/10/26.
  */
@@ -12,51 +14,58 @@ public class IteratorPattern1 {
         aggregate.add("php");
         aggregate.add("hadoop");
         Iterator1<String> iterator1 = aggregate.iterator();
-        while (iterator1.hasNext()){
-           String string  = iterator1.next();
+        while (iterator1.hasNext()) {
+            String string = iterator1.next();
             System.out.println(string);
         }
     }
 }
 
-interface Iterator1<T>{
+interface Iterator1<T> {
     T next();
+
     boolean hasNext();
 }
-class ConcreteIterator1<T> implements Iterator1<T>{
+
+class ConcreteIterator1<T> implements Iterator1<T> {
     private List<T> list;
-    private int cursor=0;
+    private int cursor = 0;
 
     @Override
     public T next() {
         T object = null;
-        if (hasNext()){
+        if (hasNext()) {
             object = list.get(cursor++);
         }
-        return  object;
+        return object;
 
     }
 
     @Override
     public boolean hasNext() {
-        if (cursor == list.size()){
+        if (cursor == list.size()) {
             return false;
         }
         return true;
     }
-    public ConcreteIterator1(List list){
+
+    public ConcreteIterator1(List list) {
         this.list = list;
     }
 }
 
-interface Aggregate1<T>{
+interface Aggregate1<T> {
     void add(T object);
+
     void remove(T object);
+
     Iterator1<T> iterator();
 }
-class ConcreteAggregate1<T> implements Aggregate1<T>{
+
+class ConcreteAggregate1<T> implements Aggregate1<T> {
 
     private List<T> list = new ArrayList<T>();
+
     @Override
     public void add(T object) {
         list.add(object);

@@ -14,49 +14,57 @@ public class IteratorPattern {
         aggregate.add("php");
         aggregate.add("hadoop");
         Iterator iterator = aggregate.iterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             String string = (String) iterator.next();
             System.out.println(string);
         }
     }
 }
 
-interface Iterator{
+interface Iterator {
     Object next();
+
     boolean hasNext();
 }
-class ConcreteIterator implements Iterator{
+
+class ConcreteIterator implements Iterator {
     private List list = new ArrayList();
-    private int cursor=0;
+    private int cursor = 0;
 
     @Override
     public Object next() {
         Object object = null;
-        if (hasNext()){
+        if (hasNext()) {
             object = list.get(cursor++);
         }
-        return  object;
+        return object;
     }
+
     @Override
     public boolean hasNext() {
-       if (cursor == list.size()){
-           return false;
-       }
+        if (cursor == list.size()) {
+            return false;
+        }
         return true;
     }
-    public ConcreteIterator(List list){
+
+    public ConcreteIterator(List list) {
         this.list = list;
     }
 }
 
-interface Aggregate{
+interface Aggregate {
     void add(Object object);
+
     void remove(Object object);
+
     Iterator iterator();
 }
-class ConcreteAggregate implements Aggregate{
+
+class ConcreteAggregate implements Aggregate {
 
     private List list = new ArrayList();
+
     @Override
     public void add(Object object) {
         list.add(object);

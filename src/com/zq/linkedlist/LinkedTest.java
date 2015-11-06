@@ -68,22 +68,27 @@ class Link {
         }
         this.count++;
     }
-    public void print(){
-        if (this.root !=null){
+
+    public void print() {
+        if (this.root != null) {
             this.root.printNode();
         }
     }
-    public int size(){
-        return  count;
+
+    public int size() {
+        return count;
     }
-    public boolean isEmpty(){
-        return count==0;
+
+    public boolean isEmpty() {
+        return count == 0;
     }
-    public void clean(){
+
+    public void clean() {
         this.root = null;
-        this.count =0;
+        this.count = 0;
     }
-    public String get(int index){
+
+    public String get(int index) {
 
 
         //if()
@@ -91,9 +96,6 @@ class Link {
 
         return "";
     }
-
-
-
 
 
     private class Node {
@@ -127,9 +129,10 @@ class Link {
                 this.next.addNode(newNode);
             }
         }
-        public void printNode(){
+
+        public void printNode() {
             System.out.println(this.getData());
-            if (this.next!=null){
+            if (this.next != null) {
                 this.next.printNode();
             }
         }

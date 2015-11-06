@@ -6,6 +6,7 @@ package com.zq.statemachine;
 public class StateMachineTry {
 
     public State state;
+
     public static void main(String args[]) throws InterruptedException {
 
 
@@ -14,17 +15,13 @@ public class StateMachineTry {
         thread.start();
 
 
-
     }
-
-
-
 
 
 }
 
-enum State{
+enum State {
 
-    init,judgement,solving,decomposing,decomposevoting,waitdecomposeapprove,solvevoting,waitsolveapproval,end
+    init, judgement, solving, decomposing, decomposevoting, waitdecomposeapprove, solvevoting, waitsolveapproval, end
 
 }

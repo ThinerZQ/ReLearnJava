@@ -12,6 +12,7 @@ public class BubbleSort {
         bubbleSort_1(b);
         bubbleSort_2(c);
     }
+
     public static void bubbleSort(int a[]) {
         int exchangeCount = 0;
         for (int i = 0; i < a.length - 1; i++) {
@@ -25,11 +26,12 @@ public class BubbleSort {
             }
         }
         System.out.println("  普通冒泡排序 比较次数      " + exchangeCount);
-        for (int i = 0; i <a.length ; i++) {
-            System.out.print(a[i]+"  ");
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i] + "  ");
         }
         System.out.println();
     }
+
     public static void bubbleSort_1(int a[]) {
         int exchangeCount = 0;
         int i = a.length - 1;//初始时候，最终交换位置不变
@@ -47,41 +49,42 @@ public class BubbleSort {
             i = pos;//最终当pos位置不为0的时候，继续吓一躺排序。。当pos位置为0 表示在这一趟过程没有发生交换，元素都是有序的，自然退出循环
         }
         System.out.println(" 加标志变量pos比较次数       " + exchangeCount);
-        for (i = 0; i <a.length ; i++) {
-            System.out.print(a[i]+"  ");
+        for (i = 0; i < a.length; i++) {
+            System.out.print(a[i] + "  ");
         }
         System.out.println();
     }
+
     public static void bubbleSort_2(int a[]) {
         int exchangeCount = 0;
-        int low =0;
-        int high=a.length-1;//设置变量初始值
-        int temp,j;
-        while (low<high){//当最低位依然小于最高位的时候，才会循环
-            for (j=low;j<high;j++){
+        int low = 0;
+        int high = a.length - 1;//设置变量初始值
+        int temp, j;
+        while (low < high) {//当最低位依然小于最高位的时候，才会循环
+            for (j = low; j < high; j++) {
                 //正向冒泡，找出最大值
                 exchangeCount++;
-                if (a[j]>a[j+1]){
+                if (a[j] > a[j + 1]) {
                     temp = a[j];
-                    a[j]=a[j+1];
-                    a[j+1] = temp;
+                    a[j] = a[j + 1];
+                    a[j + 1] = temp;
                 }
             }
             high--;//最大值找到了，修改high的位置
             //反向冒泡找出最小值，
-            for (j=high;j>low;j--){
+            for (j = high; j > low; j--) {
                 exchangeCount++;
-                if (a[j]<a[j-1]){
+                if (a[j] < a[j - 1]) {
                     temp = a[j];
-                    a[j]=a[j-1];
-                    a[j-1] = temp;
+                    a[j] = a[j - 1];
+                    a[j - 1] = temp;
                 }
             }
             low++;//最小值找到了，修改low的位置，
         }
         System.out.println(" 正向逆向两边冒泡比较次数      " + exchangeCount);
-        for (int i = 0; i <a.length ; i++) {
-            System.out.print(a[i]+"  ");
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i] + "  ");
         }
     }
 

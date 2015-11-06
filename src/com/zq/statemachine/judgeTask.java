@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class judgeTask implements Runnable {
     private int judge;
     Scanner scanner = new Scanner(System.in);
+
     public int getJudge() {
         return judge;
     }

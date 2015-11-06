@@ -10,9 +10,10 @@ package com.zq.designpattern.singleton;
 public class Singleton {
     private static Singleton instance = new Singleton();
 
-    private Singleton(){
+    private Singleton() {
     }
-    public static Singleton getInstance(){
+
+    public static Singleton getInstance() {
         return instance;
     }
 }
@@ -21,20 +22,22 @@ public class Singleton {
  * ÀÁººµ¥Àý
  */
 class Singleton1 {
-    private  static  Singleton1 instance;
-    private Singleton1(){
+    private static Singleton1 instance;
+
+    private Singleton1() {
 
     }
-    public static  Singleton1 getInstance(){
-        if (instance==null){
-            instance=new Singleton1();
+
+    public static Singleton1 getInstance() {
+        if (instance == null) {
+            instance = new Singleton1();
         }
         return instance;
     }
 
 }
 
-class Client{
+class Client {
     public static void main(String[] args) {
         Singleton singleton = Singleton.getInstance();
         System.out.println(singleton);
@@ -47,9 +50,9 @@ class Client{
         //Singleton1 singleton11 = Singleton1.getInstance();
         //System.out.println(singleton11);
 
-        for (int i=0;i<1000;i++){
+        for (int i = 0; i < 1000; i++) {
 
-            new Thread(){
+            new Thread() {
                 @Override
                 public void run() {
                     Singleton1 singleton12 = Singleton1.getInstance();
@@ -69,8 +72,6 @@ class Client{
                 }
             }.start();
         }
-
-
 
 
     }

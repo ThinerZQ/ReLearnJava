@@ -17,20 +17,22 @@ public class DutyChain {
     }
 }
 
-class Level{
-    private int level=0;
+class Level {
+    private int level = 0;
 
     public Level(int level) {
         this.level = level;
     }
-    public boolean above(Level level){
-        if (this.level>=level.level){
+
+    public boolean above(Level level) {
+        if (this.level >= level.level) {
             return true;
         }
         return false;
     }
 }
-class Request{
+
+class Request {
     Level level;
 
     public Request(Level level) {
@@ -41,32 +43,39 @@ class Request{
         return level;
     }
 }
-class Response{
+
+class Response {
 
 }
-abstract class Handler{
+
+abstract class Handler {
     private Handler nextHandler;
-    public final Response handleRequest(Request request){
+
+    public final Response handleRequest(Request request) {
         Response response = null;
         //判断这个请求的优先级是不是比我能处理的请求的优先级大
-        if (this.getHandlerLevel().above(request.level)){
+        if (this.getHandlerLevel().above(request.level)) {
             response = response(request);
-        }else{
-            if (this.nextHandler!=null){
+        } else {
+            if (this.nextHandler != null) {
                 this.nextHandler.handleRequest(request);
-            }else{
+            } else {
                 System.out.println("没有合适的处理器--");
             }
         }
         return response;
     }
-    public  void setNextHandler(Handler handler){
+
+    public void setNextHandler(Handler handler) {
         this.nextHandler = handler;
     }
-    protected  abstract Response response(Request request);
-    protected abstract  Level getHandlerLevel();
+
+    protected abstract Response response(Request request);
+
+    protected abstract Level getHandlerLevel();
 }
-class ConcreteHandler1 extends Handler{
+
+class ConcreteHandler1 extends Handler {
 
     @Override
     protected Response response(Request request) {
@@ -79,7 +88,8 @@ class ConcreteHandler1 extends Handler{
         return new Level(1);
     }
 }
-class ConcreteHandler2 extends Handler{
+
+class ConcreteHandler2 extends Handler {
 
     @Override
     protected Response response(Request request) {
@@ -92,7 +102,8 @@ class ConcreteHandler2 extends Handler{
         return new Level(4);
     }
 }
-class ConcreteHandler3 extends Handler{
+
+class ConcreteHandler3 extends Handler {
 
     @Override
     protected Response response(Request request) {
@@ -105,12 +116,14 @@ class ConcreteHandler3 extends Handler{
         return new Level(7);
     }
 }
-class ConcreteHandler4 extends Handler{
+
+class ConcreteHandler4 extends Handler {
     @Override
     protected Response response(Request request) {
         System.out.println("ConcreteHandler4 处理");
         return null;
     }
+
     @Override
     protected Level getHandlerLevel() {
         return new Level(9);

@@ -10,7 +10,7 @@ public class CompositePattern {
     public static void main(String[] args) {
 
         //创建文件夹
-        Component root  = new Folder("D:\\");
+        Component root = new Folder("D:\\");
         Component myPicture = new Folder("我的照片");
         Component myDocument = new Folder("我的文档");
         Component myVideo = new Folder("我的视频");
@@ -52,24 +52,25 @@ public class CompositePattern {
         root.copy();
 
 
-
-
-
     }
 }
 
 //文件和文件夹共有的操作，接口
-interface Component{
+interface Component {
     void add(Component component);
+
     void delete(Component component);
+
     void updateName(String name);
+
     void copy();
 }
+
 //文件夹类
-class Folder implements Component{
+class Folder implements Component {
 
     //保存文件夹里面的东西
-    private List<Component> list ;
+    private List<Component> list;
 
     private String folderName;
 
@@ -89,7 +90,7 @@ class Folder implements Component{
         this.folderName = folderName;
     }
 
-    public Folder(String folderName){
+    public Folder(String folderName) {
         setFolderName(folderName);
         setList(new ArrayList<Component>());
     }
@@ -112,14 +113,15 @@ class Folder implements Component{
     //当拷贝文件夹的时候，连带文件夹里面的所有内容一起拷贝，当然这个工作，交给各自的组合对象完成就行了
     @Override
     public void copy() {
-        System.out.println("复制文件夹："  +getFolderName());
-        for (Component component :getList()){
+        System.out.println("复制文件夹：" + getFolderName());
+        for (Component component : getList()) {
             component.copy();
         }
     }
 }
+
 //文件类
-class File implements Component{
+class File implements Component {
 
     private String fileName;
 
@@ -149,10 +151,11 @@ class File implements Component{
     public void updateName(String name) {
         setFileName(name);
     }
+
     //文件拷贝工作
     @Override
     public void copy() {
-        System.out.println("复制文件： "+getFileName());
+        System.out.println("复制文件： " + getFileName());
     }
 }
 

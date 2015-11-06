@@ -21,64 +21,67 @@ public class ProxyPattern {
         //王五买20罐
         milkProxy.sell(20);
 
-        System.out.println("代购收益："+milkProxy.computeProfit());
+        System.out.println("代购收益：" + milkProxy.computeProfit());
     }
 }
 
 
-interface Milk{
+interface Milk {
     void sell(int number);
 }
 
-class Manufacturer implements Milk{
+class Manufacturer implements Milk {
 
-    private int number=2000;
+    private int number = 2000;
     private String name;
     private int price;
-    private  int saledCount=0;
+    private int saledCount = 0;
 
     public int getPrice() {
         return price;
     }
-    public Manufacturer(){
+
+    public Manufacturer() {
         name = "牛奶";
         price = 100;
     }
+
     public void sell(int number) {
-        System.out.println("生产商卖  "+number+"  罐奶粉给代购");
-        saledCount +=number;
+        System.out.println("生产商卖  " + number + "  罐奶粉给代购");
+        saledCount += number;
     }
 }
 
-class MilkProxy implements Milk{
+class MilkProxy implements Milk {
 
     //代理知道生产商上哪儿找生产商，
     Manufacturer manufacturer = new Manufacturer();
-    private int price=0;
-    private int saledCount=0;
-    private long profit=0;
-    private int size=0;
+    private int price = 0;
+    private int saledCount = 0;
+    private long profit = 0;
+    private int size = 0;
 
-    public MilkProxy(){
-        this.price=200;
+    public MilkProxy() {
+        this.price = 200;
     }
 
     @Override
     public void sell(int number) {
-        size +=number;
-        while(size>20){
+        size += number;
+        while (size > 20) {
             //打开下面的注释这样写表示当你能够靠卖奶粉赚到钱的时候（只买1两件，代理商怎么愿意跑一趟德国嘛），代理商才真正的去找生产商（可以看成是虚代理）
             //manufacturer = new Manufacturer();
             System.out.println("去拿货");
             //实际上他是在帮生产商卖牛奶，然后自己赚差价
             manufacturer.sell(size);
             System.out.println("代购卖  " + size + "  罐奶粉给客户");
-            saledCount+=size;
-            size=0;
+            saledCount += size;
+            size = 0;
         }
     }
-    public long computeProfit(){
-        profit = saledCount*(price-manufacturer.getPrice());
+
+    public long computeProfit() {
+        profit = saledCount * (price - manufacturer.getPrice());
         return profit;
     }
 

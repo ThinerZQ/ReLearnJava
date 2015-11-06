@@ -6,37 +6,39 @@ import java.util.Random;
  * Created by zhengshouzi on 2015/10/28.
  */
 
-interface OutputStream{
+interface OutputStream {
     void write(String string);
 }
 
-class StringOutputStream implements OutputStream{
+class StringOutputStream implements OutputStream {
 
     @Override
     public void write(String string) {
-        System.out.println("写  "+ string + "  到文件");
+        System.out.println("写  " + string + "  到文件");
     }
 }
 
-abstract class FilterOutputStream implements OutputStream{
+abstract class FilterOutputStream implements OutputStream {
 
 
 }
-class EncryptString_1_OutputStream extends FilterOutputStream{
+
+class EncryptString_1_OutputStream extends FilterOutputStream {
     OutputStream outputStream;
 
-    public EncryptString_1_OutputStream(OutputStream outputStream){
+    public EncryptString_1_OutputStream(OutputStream outputStream) {
         this.outputStream = outputStream;
     }
+
     @Override
     public void write(String string) {
         char[] chars = string.toCharArray();
         StringBuilder sb = new StringBuilder();
-        System.out.println("源字符串:  "+string+"   开始简单加密（装饰）：每一字符自身加上1");
-        for (int i=0;i<chars.length;i++){
-            if (chars[i]!='z'){
-                chars[i] = (char) (chars[i]+1);
-            }else {
+        System.out.println("源字符串:  " + string + "   开始简单加密（装饰）：每一字符自身加上1");
+        for (int i = 0; i < chars.length; i++) {
+            if (chars[i] != 'z') {
+                chars[i] = (char) (chars[i] + 1);
+            } else {
                 chars[i] = 'a';
             }
             //System.out.print(chars[i]);
@@ -48,19 +50,21 @@ class EncryptString_1_OutputStream extends FilterOutputStream{
     }
 }
 
-class EncryptString_2_OutputStream extends FilterOutputStream{
+class EncryptString_2_OutputStream extends FilterOutputStream {
     OutputStream outputStream;
-    public EncryptString_2_OutputStream(OutputStream outputStream){
+
+    public EncryptString_2_OutputStream(OutputStream outputStream) {
         this.outputStream = outputStream;
     }
+
     @Override
     public void write(String string) {
         char[] chars = string.toCharArray();
         StringBuilder sb = new StringBuilder();
-        System.out.println("源字符串:  "+string+"   开始自身加密（装饰）：每一字符加上自己然后除以3");
-        for (int i=0;i<chars.length;i++){
+        System.out.println("源字符串:  " + string + "   开始自身加密（装饰）：每一字符加上自己然后除以3");
+        for (int i = 0; i < chars.length; i++) {
 
-            chars[i] = (char) ((chars[i]+chars[i])/3);
+            chars[i] = (char) ((chars[i] + chars[i]) / 3);
             //System.out.print(chars[i]);
             sb.append(chars[i]);
         }
@@ -70,19 +74,21 @@ class EncryptString_2_OutputStream extends FilterOutputStream{
     }
 }
 
-class EncryptString_3_OutputStream extends FilterOutputStream{
+class EncryptString_3_OutputStream extends FilterOutputStream {
     OutputStream outputStream;
-    public EncryptString_3_OutputStream(OutputStream outputStream){
+
+    public EncryptString_3_OutputStream(OutputStream outputStream) {
         this.outputStream = outputStream;
     }
+
     @Override
     public void write(String string) {
         char[] chars = string.toCharArray();
         StringBuilder sb = new StringBuilder();
-        System.out.println("源字符串:  "+string+"   开始随机加密（装饰）：每一字符加上一个5以内的随机数");
-        for (int i=0;i<chars.length;i++){
+        System.out.println("源字符串:  " + string + "   开始随机加密（装饰）：每一字符加上一个5以内的随机数");
+        for (int i = 0; i < chars.length; i++) {
 
-            chars[i] = (char) ((chars[i]+new Random().nextInt(5)-5));
+            chars[i] = (char) ((chars[i] + new Random().nextInt(5) - 5));
             //System.out.print(chars[i]);
             sb.append(chars[i]);
         }
@@ -91,6 +97,7 @@ class EncryptString_3_OutputStream extends FilterOutputStream{
         outputStream.write(sb.toString());
     }
 }
+
 public class DecoratorPattern {
     public static void main(String[] args) {
         OutputStream outputStream = new StringOutputStream();

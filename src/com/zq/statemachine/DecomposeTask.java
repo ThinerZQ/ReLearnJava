@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class DecomposeTask implements Runnable {
     private int decomposeStep;
     Scanner scanner = new Scanner(System.in);
+
     public int getDecomposeStep() {
         return decomposeStep;
     }

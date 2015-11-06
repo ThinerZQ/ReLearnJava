@@ -11,24 +11,28 @@ public class Strategy {
         content.execute();
     }
 }
-interface IStrategy{
+
+interface IStrategy {
     void doSomething();
 }
-class ConcreteStrategy1 implements IStrategy{
+
+class ConcreteStrategy1 implements IStrategy {
 
     @Override
     public void doSomething() {
         System.out.println(" strategy 1 ");
     }
 }
-class ConcreteStrategy2 implements IStrategy{
+
+class ConcreteStrategy2 implements IStrategy {
 
     @Override
     public void doSomething() {
         System.out.println(" strategy 2 ");
     }
 }
-class ConcreteStrategy3 implements IStrategy{
+
+class ConcreteStrategy3 implements IStrategy {
 
     @Override
     public void doSomething() {
@@ -36,12 +40,14 @@ class ConcreteStrategy3 implements IStrategy{
     }
 }
 
-class Content{
+class Content {
     IStrategy strategy;
-    public Content(IStrategy strategy){
+
+    public Content(IStrategy strategy) {
         this.strategy = strategy;
     }
-    public void execute(){
+
+    public void execute() {
         strategy.doSomething();
     }
 }

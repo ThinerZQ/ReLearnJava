@@ -12,23 +12,26 @@ public class FactoryMethod {
     }
 }
 
-interface IProduct{
+interface IProduct {
     public void productMethod();
 }
-class Product implements IProduct{
+
+class Product implements IProduct {
 
     @Override
     public void productMethod() {
         System.out.println("product");
     }
 }
-interface IFactory{
+
+interface IFactory {
     public IProduct createProduct();
 }
-class Factory implements IFactory{
+
+class Factory implements IFactory {
 
     @Override
     public IProduct createProduct() {
-        return  new Product();
+        return new Product();
     }
 }
