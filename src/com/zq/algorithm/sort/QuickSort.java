@@ -9,10 +9,10 @@ public class QuickSort {
         int[] a = {49, 38, 65, 97, 76, 13, 27, 49};
         int[] b = {1, 2, 3, 4, 5, 6, 7, 8};
         //程序中所有的下标从0开始
-        quickSort(b, 0, b.length - 1);
+        quickSort(a, 0, b.length - 1);
 
         for (int i = 0; i < a.length; i++) {
-            System.out.print(" " + b[i]);
+            System.out.print(" " + a[i]);
         }
 
     }

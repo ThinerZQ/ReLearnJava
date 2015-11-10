@@ -35,7 +35,7 @@ public class HeapSort {
         }
     }
 
-    //建堆
+    //建堆,也是一个不断调整堆的过程
     public static void buildHeap(int[] a, int size) {
         //建堆，从倒数第一个非叶子节点开始判断是否需要调整，以此顺序调整到堆顶节点。
         for (int i = (size - 1) / 2; i >= 0; i--) {

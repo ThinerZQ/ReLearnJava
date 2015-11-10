@@ -8,6 +8,8 @@ public class RadixSort {
         int[] a = {135, 242, 192, 93, 345, 11, 24, 19};
 
         redixSort(a, 3, 1);
+
+        System.out.println("最终结果：");
         for (int i = 0; i < a.length; i++) {
             System.out.print(" " + a[i]);
         }
@@ -32,6 +34,7 @@ public class RadixSort {
             for (int i = 0; i < a.length; i++) {
                 temp[i] = a[i];
             }
+            /*
             //定义一个变量，用来控制 a 数组下标
             int j = 0;
             //循环找到通过每一个基数排序后的顺序，
@@ -46,21 +49,24 @@ public class RadixSort {
                         }
                     }
                 }
-            }
+            }*/
 
-           /* for (int i = 1; i < redix; i++) {
+            for (int i = 1; i < redix; i++) {
                 count [i] = count[i] + count[i-1];
             }
-            for (int i = a.length-1; i >= 0; i++) {
+            //计数排序
+            for (int i = a.length-1; i >= 0; i--) {
                 int tempKey = (temp[i]/divide)%redix;
                 count[tempKey]--;
                 a[count[tempKey]] = temp[i];
-            }*/
-
+            }
+            /*
             for (int i = 0; i < count.length; i++) {
                 System.out.print(" " + count[i]);
             }
+*/
             System.out.println();
+            System.out.print("对" + divide + "位计数排序后：");
             for (int i = 0; i < a.length; i++) {
                 System.out.print(" " + a[i]);
             }
