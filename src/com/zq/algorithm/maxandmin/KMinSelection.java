@@ -134,4 +134,29 @@ public class KMinSelection {
     //其他方法，太多了
     //通过堆排序，弹出K次，
     //排序完，找第K个元素。
+
+
+
+    //最坏情况下为O（n）的寻找中位数方法
+
+
+    public static void terrible_with_o_n_method(int[] a,int left,int right,int k){
+
+
+
+
+    }
+    //以 x 为主元 划分函数，通过改变第一个元素的值，在调用第一个元素的划分
+    public static int partition_x(int a[],int left,int right,int x)
+    {
+     return 0;
+    }
+    //选择函数
+    public static int select(int[] a,int left,int right){
+      return 0;
+    }
+    //插入排序函数
+    public static int insertSort(int[] a,int left,int right){
+        return 0;
+    }
 }
