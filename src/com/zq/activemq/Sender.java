@@ -3,7 +3,7 @@ package com.zq.activemq;
 /**
  * Created by zhengshouzi on 2015/10/13.
  */
-
+/*
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.DeliveryMode;
@@ -74,3 +74,4 @@ public class Sender {
         }
     }
 }
+*/

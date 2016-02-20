@@ -38,9 +38,8 @@ public class SingleLinkedTest {
 
         link.print();
 
-        System.out.println(link.size());
-        System.out.println(link.isEmpty());
-        System.out.println(link.get(3).getData());
+        System.out.println("链表大小："+ link.size());
+        System.out.println("链表是否为空："+link.isEmpty());
 
     }
 /*
@@ -111,7 +110,9 @@ class SingleLink {
 
     public void print() {
         if (this.root != null) {
+            System.out.print("输出链表元素：");
             this.root.printNode();
+            System.out.println();
         }
     }
 
@@ -170,11 +171,12 @@ class Node {
             this.next = newNode;
         } else {
             this.next.addNode(newNode);
+            System.out.print(newNode.getData());
         }
     }
 
     public void printNode() {
-        System.out.println(this.getData());
+        System.out.print(this.getData() + "  ");
         if (this.next != null) {
             this.next.printNode();
         }

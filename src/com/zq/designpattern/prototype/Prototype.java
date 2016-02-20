@@ -1,6 +1,6 @@
 package com.zq.designpattern.prototype;
 
-import com.zq.activemq.Sender;
+//import com.zq.activemq.Sender;
 
 import java.util.ArrayList;
 
