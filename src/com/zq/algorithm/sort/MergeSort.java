@@ -12,7 +12,7 @@ public class MergeSort {
 
         //输出最后结果
         System.out.print("最后结果：");
-       for (int i = 0; i < a.length; i++) {
+        for (int i = 0; i < a.length; i++) {
             System.out.print(" " + a[i]);
         }
     }
@@ -23,7 +23,7 @@ public class MergeSort {
 
         System.out.print("分解：");
         for (int i = left; i <= right; i++) {
-            System.out.print( "  "+ a[i]);
+            System.out.print("  " + a[i]);
         }
         System.out.println();
 
@@ -37,7 +37,7 @@ public class MergeSort {
             mergeSort1(a, middle + 1, right);
             //当左边和右边都有序了，那么就合并左右两边的序列，使序列整体有序
             mergeArray1(a, left, middle, right);
-        }else {
+        } else {
             //System.out.println("叶子节点：" +a[left]);
         }
 
@@ -77,8 +77,10 @@ public class MergeSort {
         System.out.println();
         System.out.println("--------------------------------------------");
     }
+
     /**
      * 递归方法，用来分解问题，
+     *
      * @param a     源数组
      * @param left  每次分解的序列的左边界
      * @param right 每次分解的序列的的右边界
@@ -99,12 +101,14 @@ public class MergeSort {
         }
 
     }
+
     /**
-     *   归并两个连续的有序的序列
-     * @param a 源数组
-     * @param first 序列的开始下标
+     * 归并两个连续的有序的序列
+     *
+     * @param a      源数组
+     * @param first  序列的开始下标
      * @param middle 中间下标
-     * @param last 结束下标
+     * @param last   结束下标
      */
     public static void mergeArray(int[] a, int first, int middle, int last) {
 

@@ -10,21 +10,19 @@ public class HashMethod {
     }
 
 
-
-
 }
 
-class DivideHash<K,V>{
+class DivideHash<K, V> {
 
 
-    private  static int capatiry=20;
-    private  static float load_factory=0.75f;
-    private int max=(int)(capatiry*load_factory);
-    private Entry<K,V>[] hashtable;
-    private int size=0;
+    private static int capatiry = 20;
+    private static float load_factory = 0.75f;
+    private int max = (int) (capatiry * load_factory);
+    private Entry<K, V>[] hashtable;
+    private int size = 0;
 
 
-    public  DivideHash(int capaticy,float load_factor){
+    public DivideHash(int capaticy, float load_factor) {
 
         if (capaticy < 0)
             throw new IllegalArgumentException("Illegal initial capacity: "
@@ -38,12 +36,11 @@ class DivideHash<K,V>{
         this.hashtable = new Entry[capaticy];
     }
 
-    public DivideHash(){
-       this(capatiry,load_factory);
+    public DivideHash() {
+        this(capatiry, load_factory);
     }
-    public boolean insert(K k,V v){
 
-
+    public boolean insert(K k, V v) {
 
 
         // 1.计算K的hash值
@@ -51,9 +48,9 @@ class DivideHash<K,V>{
         int khash = k.hashCode();
 
         //将所有信息封装为一个Entry
-        Entry<K,V> temp=new Entry(k,v,khash);
+        Entry<K, V> temp = new Entry(k, v, khash);
 
-        if(setEntry(temp, hashtable)){
+        if (setEntry(temp, hashtable)) {
             // 大小加一
             size++;
             return true;
@@ -63,15 +60,16 @@ class DivideHash<K,V>{
     }
 
     /**
-     *将指定的结点temp添加到指定的hash表table当中
+     * 将指定的结点temp添加到指定的hash表table当中
      * 添加时判断该结点是否已经存在
      * 如果已经存在，返回false
      * 添加成功返回true
+     *
      * @param temp
      * @param table
      * @return
      */
-    private boolean setEntry(Entry<K,V> temp,Entry[] table){
+    private boolean setEntry(Entry<K, V> temp, Entry[] table) {
 
 
         return true;
@@ -81,15 +79,17 @@ class DivideHash<K,V>{
         return hashcode & (containerLength - 1);
 
     }
-    public void search(int a){
+
+    public void search(int a) {
 
     }
-    public void delete(int a){
+
+    public void delete(int a) {
 
     }
 }
 
-class Entry<K,V>{
+class Entry<K, V> {
     Entry<K, V> next;// 下一个结点
     K key;// key
     V value;// value

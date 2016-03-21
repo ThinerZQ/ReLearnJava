@@ -8,10 +8,10 @@ import java.util.Random;
 public class SecondMaxSelection {
     public static void main(String[] args) {
 
-        int[] a = {10,9,8,7,6,5,4,3,2,1,0};
+        int[] a = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
         int secondMin = violence(a);
 
-       System.out.println(secondMin);
+        System.out.println(secondMin);
 
     }
 
@@ -36,9 +36,9 @@ public class SecondMaxSelection {
             if (a[i] < min) {
                 second = min;
                 min = a[i];
-            }else if (second > a[i]){
+            } else if (second > a[i]) {
                 //important
-                second=a[i];
+                second = a[i];
             }
         }
 

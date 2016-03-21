@@ -9,117 +9,136 @@ import java.util.concurrent.ConcurrentLinkedDeque;
  */
 public class Task {
 
-    String transition =null;
-    class Init{
+    String transition = null;
 
-        public void exit(){
+    class Init {
+
+        public void exit() {
             System.out.println("exit SolveVote");
             transition = "com.zq.innerclass.Task$Judge";
         }
     }
-    class Judge{
-        int count=0;
+
+    class Judge {
+        int count = 0;
+
         //内部转移
-        public synchronized void judge(){
+        public synchronized void judge() {
             count++;
         }
-
 
 
         //外部转移
 
-        public void toDivide(){
-
-        }
-        public void toSolve(){
+        public void toDivide() {
 
         }
 
+        public void toSolve() {
+
+        }
 
 
-        public void entry(){
+        public void entry() {
             System.out.println("entry SolveVote");
         }
-        public void exit(){
+
+        public void exit() {
             System.out.println("exit SolveVote");
         }
 
     }
-    class Divide{
-        int count=0;
-        public void divide(){
+
+    class Divide {
+        int count = 0;
+
+        public void divide() {
             count++;
         }
-        public void entry(){
+
+        public void entry() {
             System.out.println("entry SolveVote");
         }
-        public void exit(){
+
+        public void exit() {
             System.out.println("exit SolveVote");
         }
 
     }
-    class DivideVote{
-        int count=0;
-        public void vote(){
+
+    class DivideVote {
+        int count = 0;
+
+        public void vote() {
             count++;
         }
-        public void entry(){
+
+        public void entry() {
             System.out.println("entry SolveVote");
         }
-        public void exit(){
+
+        public void exit() {
             System.out.println("exit SolveVote");
         }
 
     }
-    class Solve{
-        int count=0;
-        public void solve(){
+
+    class Solve {
+        int count = 0;
+
+        public void solve() {
             count++;
         }
-        public void entry(){
+
+        public void entry() {
             System.out.println("entry SolveVote");
         }
-        public void exit(){
+
+        public void exit() {
             System.out.println("exit SolveVote");
         }
 
     }
-    class SolveVote{
-        int count=0;
 
-        public void entry(){
+    class SolveVote {
+        int count = 0;
+
+        public void entry() {
             System.out.println("entry SolveVote");
         }
-        public void exit(){
+
+        public void exit() {
             System.out.println("exit SolveVote");
         }
-        public void vote(){
+
+        public void vote() {
             vote();
         }
     }
-    class Final{
-        public void Entry(){
+
+    class Final {
+        public void Entry() {
 
         }
     }
 }
 
-class Demo{
+class Demo {
 
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException, InterruptedException {
         Task task = new Task();
 
         Task.Init init = task.new Init();
-        Task.Judge judge= null;
+        Task.Judge judge = null;
         Task.Divide divide = null;
-        Task.DivideVote divideVote =null;
+        Task.DivideVote divideVote = null;
         Task.Solve solve = null;
-        Task.SolveVote solveVote =null;
+        Task.SolveVote solveVote = null;
         Task.Final finals = null;
 
         init.exit();
 
-        Class  tempclass = Class.forName(task.transition);
+        Class tempclass = Class.forName(task.transition);
 
         Constructor[] constructor = tempclass.getDeclaredConstructors();
 
@@ -127,7 +146,7 @@ class Demo{
 
 
         final Task.Judge finalJudge = judge;
-        class JudgePeople implements Runnable{
+        class JudgePeople implements Runnable {
             @Override
             public void run() {
                 finalJudge.judge();
@@ -139,11 +158,11 @@ class Demo{
             thread.start();
         }
         Thread.sleep(1000);
-        if (judge.count==3){
+        if (judge.count == 3) {
             System.out.println("判断完成");
         }
 
 
     }
 
-        }
+}

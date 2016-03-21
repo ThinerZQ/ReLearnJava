@@ -52,11 +52,11 @@ public class RadixSort {
             }*/
 
             for (int i = 1; i < redix; i++) {
-                count [i] = count[i] + count[i-1];
+                count[i] = count[i] + count[i - 1];
             }
             //¼ÆÊýÅÅÐò
-            for (int i = a.length-1; i >= 0; i--) {
-                int tempKey = (temp[i]/divide)%redix;
+            for (int i = a.length - 1; i >= 0; i--) {
+                int tempKey = (temp[i] / divide) % redix;
                 count[tempKey]--;
                 a[count[tempKey]] = temp[i];
             }
