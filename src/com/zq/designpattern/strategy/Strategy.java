@@ -1,6 +1,5 @@
 package com.zq.designpattern.strategy;
 
-import sun.org.mozilla.javascript.internal.ast.ConditionalExpression;
 
 /**
  * Created by zhengshouzi on 2015/10/26.
