@@ -1,4 +1,4 @@
-package com.zq.trys.concurrent;
+package com.zq.concurrent;
 
 /**
  * Created with IntelliJ IDEA
@@ -20,9 +20,9 @@ public class ThreadInstanceVarible {
         myThread3.start();
     }
 
-    private static class MyThread extends Thread{
+    private static class MyThread extends Thread {
 
-        private int count=5;
+        private int count = 5;
 
         public MyThread(String name) {
             super();
@@ -32,9 +32,9 @@ public class ThreadInstanceVarible {
         @Override
         public void run() {
             super.run();
-            while (count>0){
+            while (count > 0) {
                 count--;
-                System.out.println("from "+this.currentThread().getName()+" compute count="+count);
+                System.out.println("from " + this.currentThread().getName() + " compute count=" + count);
             }
 
         }

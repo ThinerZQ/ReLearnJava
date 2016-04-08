@@ -1,4 +1,4 @@
-package com.zq.trys.concurrent;
+package com.zq.concurrent;
 
 /**
  * Created with IntelliJ IDEA
@@ -13,24 +13,25 @@ public class ThreadInstanceVarible2 {
     public static void main(String[] args) {
 
         MyThread myThread = new MyThread();
-        Thread a = new Thread(myThread,"A");
-        Thread b = new Thread(myThread,"B");
-        Thread c = new Thread(myThread,"c");
-        Thread d = new Thread(myThread,"d");
-        Thread e = new Thread(myThread,"e");
+        Thread a = new Thread(myThread, "A");
+        Thread b = new Thread(myThread, "B");
+        Thread c = new Thread(myThread, "c");
+        Thread d = new Thread(myThread, "d");
+        Thread e = new Thread(myThread, "e");
         a.start();
         b.start();
         c.start();
         d.start();
         e.start();
     }
-    private static class MyThread extends Thread{
-        private int count=5;
+
+    private static class MyThread extends Thread {
+        private int count = 5;
 
         @Override
         public synchronized void run() {
             count--;
-            System.out.println("from "+this.currentThread().getName()+" compute count="+count);
+            System.out.println("from " + this.currentThread().getName() + " compute count=" + count);
         }
     }
 

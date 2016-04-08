@@ -1,4 +1,4 @@
-package com.zq.trys.concurrent;
+package com.zq.concurrent;
 
 /**
  * Created with IntelliJ IDEA
@@ -10,8 +10,8 @@ package com.zq.trys.concurrent;
  * Email: 601097836@qq.com
  */
 public class DeadLockDemo {
-    private static String A="a";
-    private static String B="b";
+    private static String A = "a";
+    private static String B = "b";
 
     public static void main(String[] args) {
 
@@ -19,17 +19,18 @@ public class DeadLockDemo {
         new DeadLockDemo().deadlock();
 
     }
-    private void deadlock(){
+
+    private void deadlock() {
         Thread thread1 = new Thread(new Runnable() {
             @Override
             public void run() {
-                synchronized (A){
-                    try{
+                synchronized (A) {
+                    try {
                         Thread.sleep(2000);
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    synchronized (B){
+                    synchronized (B) {
                         System.out.println("1");
                     }
                 }
@@ -43,8 +44,8 @@ public class DeadLockDemo {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }*/
-                synchronized (B){
-                    synchronized (A){
+                synchronized (B) {
+                    synchronized (A) {
                         System.out.println("2");
                     }
                 }

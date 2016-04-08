@@ -1,5 +1,4 @@
-package com.zq.trys.concurrent;
-
+package com.zq.concurrent;
 
 
 /**
@@ -14,33 +13,31 @@ package com.zq.trys.concurrent;
 public class ThreadExecuteRandom {
 
     public static void main(String[] args) {
-        try{
+        try {
             MyThread thread = new MyThread();
             thread.setName("myThread");
             thread.start();
             for (int i = 0; i < 10; i++) {
-                int time = (int) (Math.random()*1000);
+                int time = (int) (Math.random() * 1000);
                 Thread.sleep(time);
                 System.out.println("run=" + Thread.currentThread().getName());
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
 
-
-
-    private static class MyThread extends Thread{
+    private static class MyThread extends Thread {
         @Override
         public void run() {
             try {
                 for (int i = 0; i < 10; i++) {
-                    int time = (int) (Math.random()*1000);
+                    int time = (int) (Math.random() * 1000);
                     Thread.sleep(time);
                     System.out.println("run=" + Thread.currentThread().getName());
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

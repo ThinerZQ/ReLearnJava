@@ -1,4 +1,4 @@
-package com.zq.trys.concurrent;
+package com.zq.concurrent;
 
 /**
  * Created with IntelliJ IDEA
@@ -10,44 +10,46 @@ package com.zq.trys.concurrent;
  * Email: 601097836@qq.com
  */
 public class ConcurrencyTest {
-    private static final long count =1000000000l;
+    private static final long count = 1000000000l;
 
     public static void main(String[] args) throws InterruptedException {
 
         concurrentcy();
         serial();
     }
+
     private static void concurrentcy() throws InterruptedException {
         long start = System.currentTimeMillis();
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                int a =0;
-                for (long i=0;i<count;i++){
-                    a+=5;
+                int a = 0;
+                for (long i = 0; i < count; i++) {
+                    a += 5;
                 }
             }
         });
         thread.start();
-        int b=0;
-        for (long i=0;i<count;i++){
+        int b = 0;
+        for (long i = 0; i < count; i++) {
             b--;
         }
         thread.join();
         long end = System.currentTimeMillis();
-        System.out.println("currency times:" + (end-start));
+        System.out.println("currency times:" + (end - start));
     }
-    private static void serial(){
+
+    private static void serial() {
         long start = System.currentTimeMillis();
-        int a =0;
-        for (long i=0;i<count;i++){
-            a+=5;
+        int a = 0;
+        for (long i = 0; i < count; i++) {
+            a += 5;
         }
-        int b=0;
-        for (long i=0;i<count;i++){
+        int b = 0;
+        for (long i = 0; i < count; i++) {
             b--;
         }
         long end = System.currentTimeMillis();
-        System.out.println("serial times:" +(end-start));
+        System.out.println("serial times:" + (end - start));
     }
 }

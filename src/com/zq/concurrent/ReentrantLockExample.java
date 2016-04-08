@@ -1,4 +1,4 @@
-package com.zq.trys.concurrent;
+package com.zq.concurrent;
 
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -12,23 +12,25 @@ import java.util.concurrent.locks.ReentrantLock;
  * Email: 601097836@qq.com
  */
 public class ReentrantLockExample {
-    int a =0;
+    int a = 0;
     ReentrantLock lock = new ReentrantLock();
-    public void  writer(){
+
+    public void writer() {
         lock.lock();
-        try{
+        try {
             a++;
-            System.out.println("writer:"+a);
-        }finally {
+            System.out.println("writer:" + a);
+        } finally {
             lock.unlock();
         }
     }
-    public void reader(){
+
+    public void reader() {
         lock.lock();
-        try{
-            int i=a;
-            System.out.println("reader:"+i);
-        }finally {
+        try {
+            int i = a;
+            System.out.println("reader:" + i);
+        } finally {
             lock.unlock();
         }
     }
