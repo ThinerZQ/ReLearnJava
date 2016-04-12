@@ -2,6 +2,11 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/com/zq/GamesSolution.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/zq/algorithm/hashmethod/HashMethod.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/zq/algorithm/sort/HeapSort.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/zq/algorithm/sort/QuickSort.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/zq/algorithm/sort/RadixSort.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/zq/algorithm/sort/SimpleSelectionSort.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/zq/concurrent/ThreadInstanceVarible.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/zq/linkedlist/SingleLinkedTest.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/zq/riddle/expression/FindZoro.java" charset="GBK" />

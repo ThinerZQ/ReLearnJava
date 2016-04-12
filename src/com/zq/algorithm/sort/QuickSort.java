@@ -9,7 +9,7 @@ public class QuickSort {
         int[] a = {49, 38, 65, 97, 76, 13, 27, 49};
         int[] b = {1, 2, 3, 4, 5, 6, 7, 8};
         //程序中所有的下标从0开始
-        quickSort(a, 0, b.length - 1);
+        quickSort(a, 0, a.length - 1);
 
         for (int i = 0; i < a.length; i++) {
             System.out.print(" " + a[i]);
@@ -43,18 +43,21 @@ public class QuickSort {
                 --right;
             }
             //将比基准元素小的元素与基准元素交换
-            int temp = a[right];
+           /* int temp = a[right];
             a[right] = a[left];
-            a[left] = temp;
+            a[left] = temp;*/
+            a[left]=a[right];
             //待划分元素至少有两个元素，并且从最左边开始不断右移左指针和基准元素比较，while结束left值对应的元素就是比基准元素大的元素
             while (left < right && a[left] <= pivotkey) {
                 left++;
             }
             //将比基准元素大的元素与基准元素交换
-            temp = a[right];
+           /* temp = a[right];
             a[right] = a[left];
-            a[left] = temp;
+            a[left] = temp;*/
+            a[right]=a[left];
         }
+        a[left] = pivotkey;
         return left;
     }
 }
