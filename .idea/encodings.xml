@@ -7,6 +7,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/zq/algorithm/sort/QuickSort.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/zq/algorithm/sort/RadixSort.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/zq/algorithm/sort/SimpleSelectionSort.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/zq/algorithm/tree/RedBlackTreeTest.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/zq/concurrent/ThreadInstanceVarible.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/zq/linkedlist/SingleLinkedTest.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/zq/riddle/expression/FindZoro.java" charset="GBK" />
