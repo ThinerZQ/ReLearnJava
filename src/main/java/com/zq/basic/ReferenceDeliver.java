@@ -18,7 +18,7 @@ public class ReferenceDeliver {
         Student student = new Student();
         student.name ="zq";
         student.id ="1";
-        //²»¿É±ä¶ÔÏó
+        //ä¸å¯å˜å¯¹è±¡
         String string = "abc";
 
         String string_1 = new String("ABC");
